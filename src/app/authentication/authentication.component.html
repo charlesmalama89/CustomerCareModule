@@ -1,0 +1,26 @@
+  <div class="container">
+    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm(validateForm.value)" id="formBox">
+            <h2 class="head">Login</h2>
+            <app-alert style="color: red;"></app-alert>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please input your email!">
+            <nz-input-group nzPrefixIcon="user">
+              <input type="email" nz-input formControlName="email" placeholder="Email" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please input your Password!">
+            <nz-input-group nzPrefixIcon="lock">
+              <input type="password" nz-input formControlName="password" placeholder="Password" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control>
+            <button style="background-color: #500157;" nz-button class="login-form-button">Sign In</button>
+            <!-- <p class="register_now"><a (click)="register()"  >register now!</a></p> -->
+          </nz-form-control>
+        </nz-form-item>
+    </form>
+</div>

@@ -2,3 +2,24 @@
     max-width: 100%;
   }
 
+  button:hover{
+    color: purple;
+    border-color: purple;
+  }
+  
+input:hover{
+  border-color: purple;
+}
+
+textarea:hover{
+  border-color: purple;
+}
+
+nz-select:hover{
+  border-color: purple;
+}
+
+nz-option:hover{
+  border-color: purple;
+}
+

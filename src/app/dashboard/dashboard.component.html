@@ -1,0 +1,76 @@
+<nz-layout class="app-layout">
+    <nz-sider class="menu-sidebar"
+              nzCollapsible
+              nzWidth="256px"
+              nzBreakpoint="md"
+              [(nzCollapsed)]="isCollapsed"
+              [nzTrigger]="null"
+              
+              >
+      <div class="sidebar-logo">
+        <a href="" target="_blank">
+          <i nz-icon nzType="user" nzTheme="outline"></i>
+          <h1>Customer Care</h1>
+        </a>
+      </div>
+      <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed"  >
+        <div *ngIf="userRole === 'customer_care' || userRole === 'admin'">
+        <li nz-submenu nzOpen nzTitle="Front Desk" nzIcon="dashboard">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="./openTicket">Open Ticket</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="./ticketList">Ticket List</a>
+            </li>
+          </ul>
+        </li>
+      </div>
+      <div *ngIf="userRole === 'admin' || userRole === 'staff' || userRole === 'crm' || userRole === 'fund_manager' || userRole === 'management' || userRole === 'hod' || userRole === 'units'">
+        <li nz-submenu nzOpen nzTitle="Assigned Tickets" nzIcon="form">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="./assignedTickets">Tickets</a>
+            </li>
+          </ul>
+        </li>
+      </div>
+      <div *ngIf="userRole === 'admin' || userRole === 'staff'">
+        <li nz-submenu nzOpen nzTitle="View All Tickets" nzIcon="eye">
+            <ul>
+              <li nz-menu-item nzMatchRouter>
+                <a routerLink="./viewOpenTickets">Open Tickets</a>
+              </li>
+              <li nz-menu-item nzMatchRouter>
+                  <a routerLink="./viewAClosedTickets">Closed Tickets</a>
+              </li>
+              <li nz-menu-item nzMatchRouter>
+                    <a routerLink="./viewOverDueTickets">Over-Due Tickets</a>
+              </li>
+            </ul>
+          </li>
+        </div> 
+      </ul>
+    </nz-sider>
+    <nz-layout>
+      <nz-header>
+        <div class="app-header">
+          <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+              <i class="trigger"
+                 nz-icon
+                 [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+              ></i>
+          </span>
+          <span style="float: right; margin-right: 10px;">
+              {{userItems.name}}
+            <button style="margin-left: 10px;" nz-button nzType="default" (click) ="logout()" [nzLoading]="loading" ><i nz-icon nzType="logout" nzTheme="outline"></i>Logout</button>
+        </span>
+        </div>
+      </nz-header>
+      <nz-content>
+        <div class="inner-content">
+          <router-outlet></router-outlet>
+        </div>
+      </nz-content>
+    </nz-layout>
+  </nz-layout>

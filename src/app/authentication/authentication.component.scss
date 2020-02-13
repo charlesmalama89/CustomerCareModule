@@ -1,0 +1,58 @@
+.navbar{
+    background-color: #dfd9d9;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+       -moz-box-shadow: 0 10px 6px -6px #777;
+            box-shadow: 0 10px 6px -6px #777;
+  }
+  
+  .container{
+      margin-top: 150px
+  }
+  
+    #formBox
+  {
+      -webkit-box-shadow: 0 10px 6px -6px #777;
+      -moz-box-shadow: 0 10px 6px -6px #777;
+           box-shadow: 0 10px 6px -6px #777;
+  }
+  
+  .head{
+      text-align: center;
+  }
+  .login-form {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+      margin: 0 auto;
+      max-width: 400px;
+    }
+  
+    .login-form-forgot {
+      float: right;
+    }
+  
+    .login-form-button {
+      background: #2196F3;
+      color: #f2f2f2;
+      border-radius: 15px;  
+      width: 100%;
+    }
+  
+    .login-form-button:hover {
+      background: rgb(8, 79, 138);
+      color: #f2f2f2;  
+      width: 100%;
+    }
+  
+    [nz-button] {
+      margin-right: 8px;
+      margin-bottom: 12px;
+    }
+  
+    .register_now{
+     text-align: center;
+    }
+  
+    .register_now a:hover{
+      color: rgb(8, 79, 138);
+     }
