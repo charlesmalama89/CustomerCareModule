@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
    
-  isCollapsed: false;
+  isCollapsed: boolean = false;
   userItems: any;
   loading = false;
   userRole: any;
