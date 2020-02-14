@@ -9,7 +9,7 @@
 <nz-form-item>
   <nz-form-label [nzSpan]= 5  nzRequired>Phone Number</nz-form-label>
   <nz-form-control [nzSpan]= 14  nzErrorTip="Please input client phone number!">
-    <input nz-input formControlName="phone" placeholder="Phone Number" />
+    <input nz-input minlength="12" maxlength="12" formControlName="phone" placeholder="Phone Number e.g: 260*********" />
   </nz-form-control>
 </nz-form-item>
 
