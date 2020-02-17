@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators'
 import { User } from '../models/user';
 
 
-const BASE_URL = "https://hobbiton-customer-care-api.herokuapp.com/";
+const BASE_URL = "https://hobbiton-customer-care-api.herokuapp.com";
 
 @Injectable({
   providedIn: 'root'
