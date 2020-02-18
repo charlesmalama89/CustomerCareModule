@@ -8,7 +8,7 @@ import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { registerLocaleData,CommonModule } from '@angular/common';
+import { registerLocaleData,CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { OpenTicketComponent } from './pages/open-ticket/open-ticket.component';
 import { TicketListComponent } from './pages/ticket-list/ticket-list.component';
@@ -24,6 +24,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { AccessTokenInterceptor } from './interceptor/access-token.interceptor';
 import { ErrorInterceptor } from './interceptor/error.interceptor';
 import { AlertComponent } from './alert/alert.component';
+import { ConfirmPasswordComponent } from './confirm-password/confirm-password.component';
 
 
 
@@ -41,6 +42,7 @@ registerLocaleData(en);
     AuthenticationComponent,
     DashboardComponent,
     AlertComponent,
+    ConfirmPasswordComponent,
   ],
   imports: [
     CommonModule,
@@ -59,7 +61,9 @@ registerLocaleData(en);
     AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: AccessTokenInterceptor, multi: true},
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
-    { provide: NZ_I18N, useValue: en_US }],
+    { provide: NZ_I18N, useValue: en_US },
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

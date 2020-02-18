@@ -19,9 +19,6 @@ export class TicketsService {
   constructor(private http: HttpClient) {}
 
   
-
-  
-  
   addTicket(ticket: ticketDTO): Observable<ticketDTO> {
     return this.http.post<ticketDTO>(`${BASE_URL}/tickets`, ticket);
   }

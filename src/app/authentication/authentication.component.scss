@@ -24,7 +24,7 @@
       background-color: #f2f2f2;
       padding: 20px;
       margin: 0 auto;
-      max-width: 400px;
+      max-width: 500px;
     }
   
     .login-form-forgot {
@@ -32,16 +32,13 @@
     }
   
     .login-form-button {
-      background: #2196F3;
       color: #f2f2f2;
       border-radius: 15px;  
-      width: 100%;
+      width: 100px;
     }
   
     .login-form-button:hover {
-      background: rgb(8, 79, 138);
       color: #f2f2f2;  
-      width: 100%;
     }
   
     [nz-button] {
@@ -49,10 +46,10 @@
       margin-bottom: 12px;
     }
   
-    .register_now{
+    .confirm_now{
      text-align: center;
     }
   
-    .register_now a:hover{
-      color: rgb(8, 79, 138);
+    .confirm_now a:hover{
+      color: rgb(35, 0, 41);
      }

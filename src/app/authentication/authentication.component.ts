@@ -15,6 +15,7 @@ export class AuthenticationComponent implements OnInit {
 
   validateForm: FormGroup;
   returnUrl: any;
+  isLoadingOne = false;
 
   submitForm(value: any): void {
     console.log(value);
@@ -26,6 +27,13 @@ export class AuthenticationComponent implements OnInit {
       this.login(value);
     }
     
+  }
+
+  loadOne(): void {
+    this.isLoadingOne = true;
+    setTimeout(() => {
+      this.isLoadingOne = false;
+    }, 5000);
   }
 
   constructor(
@@ -47,17 +55,22 @@ export class AuthenticationComponent implements OnInit {
     });
     
 
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard'
+    //this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard'
   }
 
   login(user: userDto) {
     console.log(user)
     this.authenticationService.login(user.email, user.password).subscribe((data) => {
-        this.router.navigate([this.returnUrl]);
+       // this.router.navigate([this.returnUrl]);
+       this.router.navigateByUrl('/dashboard');
     },error => {
       this.alertService.error(error);
     }
     )
+  }
+
+  confirmPassword() {
+    this.router.navigateByUrl('/confirmPassword');
   }
 
 }

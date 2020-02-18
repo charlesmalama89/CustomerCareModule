@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TicketsService } from 'src/app/services/tickets.service';
 import { Ticket } from 'src/app/models/ticket.model';
 import { Products } from 'src/app/models/products.model'
 import { Department } from 'src/app/models/departments.model';
 import { ticketDTO } from 'src/app/models/ticket.dto';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-open-ticket',
@@ -48,6 +49,7 @@ export class OpenTicketComponent implements OnInit {
    
     if(this.validateForm.valid){
         this.saveTicket(value);
+        this.createMessage('success');
         this.resetForm();
     }
   }
@@ -78,9 +80,15 @@ export class OpenTicketComponent implements OnInit {
     console.log(users);
     return users;
     }
+   
+  createMessage(type: string): void {
+      this.message.create(type, `Ticket Created successfully`);
+    }
+  
+  //============================================================================================================================
 
 
-  constructor(private ticketService: TicketsService, private fb: FormBuilder) {}
+  constructor(private ticketService: TicketsService, private fb: FormBuilder, private message: NzMessageService) {}
 
   tickets: Ticket[] = [];
   productList: Products[] = [];

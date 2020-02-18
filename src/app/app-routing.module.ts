@@ -9,11 +9,15 @@ import { AssignedTicketsComponent } from "./pages/assigned-tickets/assigned-tick
 import { AuthenticationComponent } from "./authentication/authentication.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { AuthGuard } from './guards/auth.guard';
+import { ConfirmPasswordComponent } from './confirm-password/confirm-password.component';
+
+
 
 
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: 'dashboard' },
   { path: "login", pathMatch: "full", component: AuthenticationComponent},
+  { path: "confirmPassword", pathMatch: "full", component: ConfirmPasswordComponent},
   {
     path: "dashboard",
     component: DashboardComponent,

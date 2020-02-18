@@ -1,3 +1,4 @@
+
   <div class="container">
     <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm(validateForm.value)" id="formBox">
             <h2 class="head">Login</h2>
@@ -18,8 +19,10 @@
         </nz-form-item>
         <nz-form-item>
           <nz-form-control>
-            <button style="background-color: #500157;" nz-button class="login-form-button">Sign In</button>
-            <!-- <p class="register_now"><a (click)="register()"  >register now!</a></p> -->
+            <div nz-row nzType="flex" nzJustify="space-around" nzAlign="middle">
+              <button style="background-color: #500157;" nz-button class="login-form-button" (click)="loadOne()" [nzLoading]="isLoadingOne">Sign In</button>
+            </div>
+            <p class="confirm_now"><a (click)="confirmPassword()">If you are login in for the first time click here to Confirm Password</a></p> 
           </nz-form-control>
         </nz-form-item>
     </form>
