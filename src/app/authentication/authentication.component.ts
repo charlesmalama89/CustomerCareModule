@@ -62,11 +62,11 @@ export class AuthenticationComponent implements OnInit {
     console.log(user)
     this.authenticationService.login(user.email, user.password).subscribe((data) => {
        // this.router.navigate([this.returnUrl]);
+       this.alertService.success('Success');
        this.router.navigateByUrl('/dashboard');
     },error => {
       this.alertService.error(error);
-    }
-    )
+    })
   }
 
   confirmPassword() {
